@@ -1,0 +1,25 @@
+{
+  "name": "mirabo",
+  "version": "0.0.1",
+  "description": "Born to conquer Minimal CSS framework world",
+  "main": "mirabo.css",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roman-koshchei/mirabo.git"
+  },
+  "keywords": [
+    "css",
+    "minimal",
+    "css-framework",
+    "minimalist",
+    "minimalistic",
+    "lightweight"
+  ],
+  "author": "Roman Koshchei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roman-koshchei/mirabo/issues"
+  },
+  "homepage": "https://github.com/roman-koshchei/mirabo#readme"
+}
