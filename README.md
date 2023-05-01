@@ -1,8 +1,8 @@
 # mirabo
 
-Born to conquer Minimal CSS framework world
+<img align="right" src="./assets/banner.png" align="right" height="250px" style="margin-left: 10px;"/>
 
-> I hate outline
+Born to conquer Minimal CSS framework world.
 
 ## Layout
 
