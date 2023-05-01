@@ -3,81 +3,141 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./mirabo.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" /> -->
     <title>Mirabo showcase</title>
   </head>
-  <body style="padding-bottom: 5rem">
+  <body style="padding-bottom: 5rem; margin: auto; max-width: 65rem">
     <h1>Mirabo showcase</h1>
 
     <!-- Cards -->
     <h3>Cards</h3>
     <div class="grid" style="margin-top: 2rem">
       <article>
-        <img src="./assets/a4.png" />
+        <img src="./assets/hikari.png" />
         <h4>Hikari</h4>
         <p>
           Hikari's radiance shone like a beacon in the darkness. Her light illuminated the path
           ahead, guiding those who followed in her wake. She was a source of inspiration, reminding
           others to never give up hope.
         </p>
-        <button>Details</button>
+        <footer>
+          <button>Details</button>
+        </footer>
       </article>
 
       <article>
-        <img src="./assets/a6.png" />
+        <img src="./assets/sakura.png" />
         <h4>Sakura</h4>
         <p>
           Her soft, gentle voice carried the sweet scent of cherry blossoms. Her eyes sparkled like
           the petals of a flower in the sunlight. She was the embodiment of beauty and grace.
         </p>
-        <button>Details</button>
+        <footer>
+          <button>Details</button>
+        </footer>
       </article>
 
       <article>
-        <img src="./assets/a5.png" />
+        <img src="./assets/yui.png" />
         <h4>Yui</h4>
         <p>
           Yui's cheerful personality was contagious, and her laughter filled the air with joy. She
           was a binding force, bringing people together and strengthening their bonds. Her presence
           made even the toughest of days a little brighter.
         </p>
-        <button>Details</button>
+        <footer>
+          <button disabled>Details</button>
+        </footer>
       </article>
 
       <article>
-        <img src="./assets/a7.png" />
+        <img src="./assets/akira.png" />
         <h4>Akira</h4>
         <p>
           With her fiery spirit and determination, Akira was a force to be reckoned with. Her eyes
-          burned with a fierce intensity, and her willpower was unbreakable. She was a fighter,
-          never backing down from a challenge, and inspiring others to do the same.
+          burned with a fierce intensity, and her willpower was unbreakable.
         </p>
-        <button>Details</button>
+
+        <footer>
+          <button>Details</button>
+          <button class="outline">Delete</button>
+        </footer>
       </article>
 
       <article>
-        <img src="./assets/a8.png" />
+        <header>
+          <b>some info in header</b>
+        </header>
+        <img src="./assets/aika.png" />
         <h4>Aika</h4>
         <p>
           With a mischievous glint in her eye and a playful smirk on her lips, Aika was always up
-          for an adventure. Her sense of humor was infectious, and her quick wit kept others on
-          their toes. She was a free spirit, unafraid to break the rules and blaze her own trail.
+          for an adventure.
+        </p>
+        <footer>
+          <button>Details</button>
+          <a role="button">Details</a>
+        </footer>
+      </article>
+    </div>
+
+    <h3>Cards many: 4 columns at desktop</h3>
+    <div class="grid many" style="margin-top: 2rem">
+      <article>
+        <img src="./assets/hikari.png" />
+        <h4>Hikari</h4>
+        <p>Hikari's radiance shone like a beacon in the darkness.</p>
+        <button>Details</button>
+      </article>
+
+      <article>
+        <img src="./assets/sakura.png" />
+        <h4>Sakura</h4>
+        <p>Her soft, gentle voice carried the sweet scent of cherry blossoms.</p>
+        <button>Details</button>
+      </article>
+
+      <article>
+        <img src="./assets/yui.png" />
+        <h4>Yui</h4>
+        <p>Yui's cheerful personality was contagious, and her laughter filled the air with joy.</p>
+        <button>Details</button>
+      </article>
+
+      <article>
+        <img src="./assets/akira.png" />
+        <h4>Akira</h4>
+        <p>
+          With her fiery spirit and determination, Akira was a force to be reckoned with. Her eyes
+          burned with a fierce intensity.
         </p>
         <button>Details</button>
       </article>
 
       <article>
-        <img src="./assets/a2.png" />
+        <img src="./assets/aika.png" />
+        <h4>Aika</h4>
+        <p>
+          With a mischievous glint in her eye and a playful smirk on her lips, Aika was always up
+          for an adventure.
+        </p>
+        <button>Details</button>
+      </article>
+
+      <article>
+        <a href="https://tailwindcss.com/docs/customizing-colors">
+          <img src="./assets/haruka.png" />
+        </a>
         <h4>Haruka</h4>
         <p>
           Though she may have seemed distant at first, Haruka's heart was filled with warmth and
-          kindness. Her presence was calming, like a gentle breeze blowing through a field of
-          flowers. She was a true friend to those who needed her.
+          kindness.
         </p>
         <button>Details</button>
       </article>
 
-      <article>
-        <img src="./assets/a1.png" />
+      <!-- <article>
+        <img src="./assets/ayumi.png" />
         <h4>Ayumi</h4>
         <p>
           With a smile that could light up the darkest of rooms, Ayumi walked confidently down the
@@ -85,19 +145,17 @@
           for all who knew her.
         </p>
         <button>Details</button>
-      </article>
+      </article> -->
 
       <article>
-        <img src="./assets/a3.png" />
+        <img src="./assets/mio.png" />
         <h4>Mio</h4>
-        <p>
-          With delicate features and a quiet grace, Mio was a vision of beauty. Her threads of fate
-          were intertwined with those around her, weaving a tapestry of love and devotion. She was a
-          loyal companion, always ready to lend a helping hand.
-        </p>
+        <p>With delicate features and a quiet grace, Mio was a vision of beauty.</p>
         <button>Details</button>
       </article>
     </div>
+
+    <div class="between"></div>
 
     <!-- <div>
       <h1>Heading 1</h1>

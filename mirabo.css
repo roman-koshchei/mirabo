@@ -3,39 +3,28 @@
 }
 
 :root {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
   --mirabo-text-color: white;
-  --mirabo-primary-color: #f68363;
+  --mirabo-dark: #27272a;
+  --mirabo-primary-color: #fb923c; /* #f68363; */
   --mirabo-background-color: #fff;
   --mirabo-border-radius: 0.5rem;
+  --mirabo-gap: 1rem;
 }
 
-/* Scrollbar */
-
-::-webkit-scrollbar {
-  width: 0.5rem;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
-}
+/**/
 
 html {
   scrollbar-width: thin;
   scrollbar-color: #d4d4d8 transparent;
   overflow: overlay;
+  font-family: sans-serif;
+  /* font-size: 1.125rem; */
+  font-size: 1rem;
 }
 
-/**/
-
 body {
-  color: #27272a;
+  color: var(--mirabo-dark);
+  background-color: #f4f4f5;
   overflow: overlay;
   max-width: 65rem;
   margin: auto;
@@ -44,47 +33,105 @@ body {
 }
 
 /* Layout */
+
+.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--mirabo-gap);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--mirabo-gap);
+}
+
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
+
+.grid.many {
+  grid-template-columns: 1fr;
+}
+
+/* sm */
+@media (min-width: 640px) {
+  /* .grid {
+    grid-template-columns: repeat(2, 1fr);
+  } */
+  .grid.many {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid.many {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid.many {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+/*
+@media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} */
 
 /* heading */
 h1 {
   font-size: 4rem;
-  margin-top: 4rem;
+  margin-top: 3.75rem;
   margin-bottom: 3.5rem;
 }
 
 h2 {
   font-size: 3rem;
-  margin-top: 3rem;
+  margin-top: 2.75rem;
   margin-bottom: 2.5rem;
 }
 
 h3 {
   font-size: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
   margin-bottom: 1.5rem;
 }
 
 h4 {
   font-size: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-h5 {
-  font-size: 1.25rem;
   margin-top: 1.25rem;
   margin-bottom: 0.75rem;
 }
 
+h5 {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
 h6 {
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0.25rem;
 }
 
 /* Form */
@@ -113,49 +160,114 @@ select:focus {
   border: solid 2px var(--mirabo-primary-color);
 }
 
+/* BUTTON */
+
 button,
 input[type="submit"],
-input[type="reset"] {
+input[type="reset"],
+a[role="button"] {
   cursor: pointer;
-  border-radius: var(--mirabo-border-radius);
-  padding: 1rem 1.25rem;
-  background-color: var(--mirabo-primary-color);
+  padding: 0.75rem 1rem;
   color: white;
-  border: none;
+  background-color: var(--mirabo-primary-color);
+  transition: 0.2s ease-in-out 0s;
+  border: solid 2px transparent;
+  border-radius: 20rem;
+
+  font-size: 1rem;
 }
 
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-  box-shadow: 0 0 0 2px var(--mirabo-primary-color);
+a[role="button"] {
+  text-align: center;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* Outline button */
+button:hover:enabled,
+input[type="submit"]:hover:enabled,
+input[type="reset"]:hover:enabled,
+a[role="button"]:hover {
+  transform: scale(1.02);
+}
+
 button.outline {
   background-color: white;
-  color: black;
+  color: #27272a;
   border: solid 2px var(--mirabo-primary-color);
 }
 
-button.outline:hover {
-  border-color: white;
-}
-
 button:disabled {
-  background-color: rgb(55, 103, 143);
-  color: gray;
+  cursor: default;
+  filter: opacity(0.8);
 }
 
-/* Card */
+button:active:enabled,
+input[type="submit"]:active:enabled,
+input[type="reset"]:active:enabled,
+a[role="button"]:active {
+  transform: scale(1);
+}
+
+/* CARD */
+
 article {
   padding: 1rem;
-  background-color: #fafafa;
+  background-color: #fff;
   /* box-shadow: 0px 0px 3px 1px #f4f4f5; */
   border-radius: var(--mirabo-border-radius);
   /* border: solid 2px #f4f4f5; */
 }
 
-article > img {
+/* 
+  Footer
+
+  If card has footer then we should place footer at the end.
+  I didn't find another solution rather than flex.
+*/
+
+article:has(footer) {
+  display: flex;
+  flex-direction: column;
+}
+
+article > footer {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--mirabo-gap);
+  flex-wrap: wrap;
+}
+
+/* HEADER */
+
+article header {
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+img {
   border-radius: var(--mirabo-border-radius);
   width: 100%;
+}
+
+article > button {
+  width: 100%;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
 }
