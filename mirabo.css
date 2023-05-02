@@ -7,7 +7,7 @@
   --mirabo-dark: #27272a;
 
   /* buttons */
-  --mirabo-primary-color: #fb923c; /* #f68363; */
+  --mirabo-primary-color: #a855f7;
   --mirabo-secondary-color: #f4f4f5;
 
   --mirabo-background-color: #fff;
@@ -249,6 +249,10 @@ button {
   transition: 0.2s ease-in-out 0s;
 }
 
+*[role="button"] {
+  display: inline-block;
+}
+
 /* 
   primary
   I desided to use :not to not overriding props. 
@@ -370,7 +374,7 @@ button:disabled {
 button:active:enabled,
 input[type="submit"]:active:enabled,
 input[type="reset"]:active:enabled,
-a[role="button"]:active {
+*[role="button"]:active {
   transform: scale(1);
 }
 
