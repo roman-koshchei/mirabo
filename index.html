@@ -7,7 +7,57 @@
     <title>Mirabo showcase</title>
   </head>
   <body style="padding-bottom: 5rem; margin: auto; max-width: 65rem">
+    <nav>
+      <div>
+        <a role="button" class="text" href="#buttons">Buttons</a>
+      </div>
+      <div>
+        <a href="https://github.com/roman-koshchei/mirabo" role="button">GitHub</a>
+      </div>
+    </nav>
+
     <h1>Mirabo showcase</h1>
+
+    <h3 id="buttons">Buttons</h3>
+    <h4>Primary</h4>
+    <article>
+      <footer>
+        <button>Primary</button>
+        <button disabled>Primary disabled</button>
+        <button class="outline">Primary outline</button>
+        <button class="outline" disabled>Primary outline disabled</button>
+      </footer>
+    </article>
+
+    <h4>Secondary</h4>
+    <article>
+      <footer>
+        <button class="secondary">Secondary</button>
+        <button class="secondary" disabled>Secondary disabled</button>
+        <button class="secondary outline">Secondary outline</button>
+        <button class="secondary outline" disabled>Secondary outline disabled</button>
+      </footer>
+    </article>
+
+    <h4>Contrast</h4>
+    <article>
+      <footer>
+        <button class="contrast">Contrast</button>
+        <button class="contrast" disabled>Contrast disabled</button>
+        <button class="contrast outline">Contrast outline</button>
+        <button class="contrast outline" disabled>Contrast outline disabled</button>
+      </footer>
+    </article>
+
+    <h4>Text</h4>
+    <article>
+      <footer>
+        <button class="text">Text</button>
+        <button class="text" disabled>Text disabled</button>
+        <button class="text outline">Text outline</button>
+        <button class="text outline" disabled>Text outline disabled</button>
+      </footer>
+    </article>
 
     <!-- Cards -->
     <h3>Cards</h3>
@@ -33,6 +83,7 @@
           the petals of a flower in the sunlight. She was the embodiment of beauty and grace.
         </p>
         <footer>
+          <button class="text">Details</button>
           <button>Details</button>
         </footer>
       </article>
@@ -81,60 +132,66 @@
       </article>
     </div>
 
-    <h3>Cards many: 4 columns at desktop</h3>
+    <h3>Cards many: 4 columns at desktop + each element wrapped into link</h3>
     <div class="grid many" style="margin-top: 2rem">
-      <article>
-        <img src="./assets/hikari.png" />
-        <h4>Hikari</h4>
-        <p>Hikari's radiance shone like a beacon in the darkness.</p>
-        <button>Details</button>
-      </article>
+      <a href="./assets/hikari.png">
+        <article>
+          <img src="./assets/hikari.png" />
+          <h4>Hikari</h4>
+          <p>Hikari's radiance shone like a beacon in the darkness.</p>
+        </article>
+      </a>
 
-      <article>
-        <img src="./assets/sakura.png" />
-        <h4>Sakura</h4>
-        <p>Her soft, gentle voice carried the sweet scent of cherry blossoms.</p>
-        <button>Details</button>
-      </article>
+      <a href="./assets/sakura.png">
+        <article>
+          <img src="./assets/sakura.png" />
+          <h4>Sakura</h4>
+          <p>Her soft, gentle voice carried the sweet scent of cherry blossoms.</p>
+        </article>
+      </a>
 
-      <article>
-        <img src="./assets/yui.png" />
-        <h4>Yui</h4>
-        <p>Yui's cheerful personality was contagious, and her laughter filled the air with joy.</p>
-        <button>Details</button>
-      </article>
+      <a href="./assets/yui.png">
+        <article>
+          <img src="./assets/yui.png" />
+          <h4>Yui</h4>
+          <p>
+            Yui's cheerful personality was contagious, and her laughter filled the air with joy.
+          </p>
+        </article>
+      </a>
 
-      <article>
-        <img src="./assets/akira.png" />
-        <h4>Akira</h4>
-        <p>
-          With her fiery spirit and determination, Akira was a force to be reckoned with. Her eyes
-          burned with a fierce intensity.
-        </p>
-        <button>Details</button>
-      </article>
+      <a href="./assets/akira.png">
+        <article>
+          <img src="./assets/akira.png" />
+          <h4>Akira</h4>
+          <p>
+            With her fiery spirit and determination, Akira was a force to be reckoned with. Her eyes
+            burned with a fierce intensity.
+          </p>
+        </article>
+      </a>
 
-      <article>
-        <img src="./assets/aika.png" />
-        <h4>Aika</h4>
-        <p>
-          With a mischievous glint in her eye and a playful smirk on her lips, Aika was always up
-          for an adventure.
-        </p>
-        <button>Details</button>
-      </article>
+      <a href="./assets/aika.png">
+        <article>
+          <img src="./assets/aika.png" />
+          <h4>Aika</h4>
+          <p>
+            With a mischievous glint in her eye and a playful smirk on her lips, Aika was always up
+            for an adventure.
+          </p>
+        </article>
+      </a>
 
-      <article>
-        <a href="https://tailwindcss.com/docs/customizing-colors">
+      <a href="./assets/haruka.png">
+        <article>
           <img src="./assets/haruka.png" />
-        </a>
-        <h4>Haruka</h4>
-        <p>
-          Though she may have seemed distant at first, Haruka's heart was filled with warmth and
-          kindness.
-        </p>
-        <button>Details</button>
-      </article>
+          <h4>Haruka</h4>
+          <p>
+            Though she may have seemed distant at first, Haruka's heart was filled with warmth and
+            kindness.
+          </p>
+        </article>
+      </a>
 
       <!-- <article>
         <img src="./assets/ayumi.png" />
@@ -147,12 +204,13 @@
         <button>Details</button>
       </article> -->
 
-      <article>
-        <img src="./assets/mio.png" />
-        <h4>Mio</h4>
-        <p>With delicate features and a quiet grace, Mio was a vision of beauty.</p>
-        <button>Details</button>
-      </article>
+      <a href="./assets/mio.png">
+        <article>
+          <img src="./assets/mio.png" />
+          <h4>Mio</h4>
+          <p>With delicate features and a quiet grace, Mio was a vision of beauty.</p>
+        </article>
+      </a>
     </div>
 
     <div class="between"></div>

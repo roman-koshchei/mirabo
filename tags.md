@@ -23,7 +23,6 @@ Navbar
 ## Other
 
 - main
-- nav
 - optgroup ?
 - output ?
 - p

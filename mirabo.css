@@ -5,10 +5,15 @@
 :root {
   --mirabo-text-color: white;
   --mirabo-dark: #27272a;
+
+  /* buttons */
   --mirabo-primary-color: #fb923c; /* #f68363; */
+  --mirabo-secondary-color: #f4f4f5;
+
   --mirabo-background-color: #fff;
   --mirabo-border-radius: 0.5rem;
   --mirabo-gap: 1rem;
+  --mirabo-default-font-size: 1rem;
 }
 
 /**/
@@ -19,7 +24,7 @@ html {
   overflow: overlay;
   font-family: sans-serif;
   /* font-size: 1.125rem; */
-  font-size: 1rem;
+  font-size: var(--mirabo-default-font-size);
 }
 
 body {
@@ -30,6 +35,47 @@ body {
   margin: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+img {
+  border-radius: var(--mirabo-border-radius);
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--mirabo-dark);
+}
+
+/* 
+  NAVBAR 
+  I decided to use nav tag not header.
+
+*/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 100rem;
+  background-color: white;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+
+  position: sticky;
+  top: 1rem;
+
+  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+nav h5,
+nav h4,
+nav h1,
+nav h2,
+nav h3,
+nav h6 {
+  margin: 0;
 }
 
 /* Layout */
@@ -160,44 +206,159 @@ select:focus {
   border: solid 2px var(--mirabo-primary-color);
 }
 
-/* BUTTON */
+/* 
+  BUTTON 
+  - primary
+    - usual
+    - disabled
+    - outline
+    - outline disabled
+  - secondary
+    - usual
+    - disabled
+    - outline
+    - outline disabled
+  - contrast
+    - usual
+    - disabled
+    - outline
+    - outline disabled
 
-button,
-input[type="submit"],
-input[type="reset"],
-a[role="button"] {
+  Tags:
+  - button
+  - *[role="button"] - any element which role is button
+  - input[type="submit"] - submit buttons
+  - input[type="reset"] - reset buttons, should be secondary or text
+  - input[type="button"] - button inputs
+
+
+  *[role="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  button
+*/
+
+/* all */
+*[role="button"],
+button {
   cursor: pointer;
-  padding: 0.75rem 1rem;
-  color: white;
-  background-color: var(--mirabo-primary-color);
-  transition: 0.2s ease-in-out 0s;
-  border: solid 2px transparent;
+  padding: 0.625rem 1rem;
   border-radius: 20rem;
-
-  font-size: 1rem;
+  font-size: var(--mirabo-default-font-size);
+  transition: 0.2s ease-in-out 0s;
 }
 
-a[role="button"] {
+/* 
+  primary
+  I desided to use :not to not overriding props. 
+  But it takes more characters and looks a bit messy.
+*/
+*[role="button"]:not(.secondary):not(.contrast):not(.text):not(.outline),
+button:not(.secondary):not(.contrast):not(.text):not(.outline) {
+  background-color: var(--mirabo-primary-color);
+  /* to make outline button and usual button same size */
+  border: solid 2px var(--mirabo-primary-color);
+  color: var(--mirabo-text-color);
+}
+
+*[role="button"]:not(.secondary):not(.contrast):not(.text).outline,
+button:not(.secondary):not(.contrast):not(.text).outline {
+  background-color: transparent;
+  /* to make outline button and usual button same size */
+  border: solid 2px var(--mirabo-primary-color);
+  color: var(--mirabo-primary-color);
+}
+
+/* secondary */
+*[role="button"].secondary:not(.outline),
+button.secondary:not(.outline) {
+  background-color: var(--mirabo-secondary-color);
+  color: var(--mirabo-dark);
+  /* to make outline button and usual button same size */
+  border: solid 2px var(--mirabo-secondary-color);
+}
+
+*[role="button"].secondary.outline,
+button.secondary.outline {
+  background-color: transparent;
+  border: solid 2px var(--mirabo-secondary-color);
+}
+
+/* contrast */
+*[role="button"].contrast:not(.outline),
+button.contrast:not(.outline) {
+  background-color: var(--mirabo-dark);
+  color: var(--mirabo-text-color);
+  /* to make outline button and usual button same size */
+  border: solid 2px var(--mirabo-dark);
+}
+
+*[role="button"].contrast.outline,
+button.contrast.outline {
+  background-color: transparent;
+  border: solid 2px var(--mirabo-dark);
+}
+
+/* text */
+*[role="button"].text,
+button.text {
+  border: 0;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+*[role="button"].text:before,
+button.text:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  box-sizing: inherit;
+  border-radius: 20rem;
+
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 0.2s ease;
+  z-index: -1;
+}
+
+*[role="button"].text:not(.outline)::before,
+button.text:not(.outline)::before {
+  background-color: var(--mirabo-secondary-color);
+  border: solid 2px var(--mirabo-secondary-color);
+}
+
+*[role="button"].text.outline::before,
+button.text.outline::before {
+  border: solid 2px var(--mirabo-secondary-color);
+}
+
+*[role="button"].text:hover:before,
+button.text:enabled:hover:before {
+  transform: scale(1);
+}
+
+/* *[role="button"] {
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
 
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+} */
 
 button:hover:enabled,
 input[type="submit"]:hover:enabled,
 input[type="reset"]:hover:enabled,
-a[role="button"]:hover {
+*[role="button"]:hover {
   transform: scale(1.02);
-}
-
-button.outline {
-  background-color: white;
-  color: #27272a;
-  border: solid 2px var(--mirabo-primary-color);
 }
 
 button:disabled {
@@ -215,6 +376,9 @@ a[role="button"]:active {
 /* CARD */
 
 article {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   background-color: #fff;
   /* box-shadow: 0px 0px 3px 1px #f4f4f5; */
@@ -228,11 +392,6 @@ article {
   If card has footer then we should place footer at the end.
   I didn't find another solution rather than flex.
 */
-
-article:has(footer) {
-  display: flex;
-  flex-direction: column;
-}
 
 article > footer {
   flex-grow: 1;
@@ -249,13 +408,8 @@ article header {
   margin-bottom: 0.75rem;
 }
 
-img {
-  border-radius: var(--mirabo-border-radius);
-  width: 100%;
-}
-
-article > button {
-  width: 100%;
+.grid article {
+  height: 100%;
 }
 
 /* Scrollbar */
