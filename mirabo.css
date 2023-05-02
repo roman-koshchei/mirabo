@@ -1,5 +1,9 @@
 * {
   outline: none;
+  /* font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 130%; */
 }
 
 :root {
@@ -8,7 +12,7 @@
 
   /* buttons */
   --mirabo-primary-color: #a855f7;
-  --mirabo-secondary-color: #f4f4f5;
+  --mirabo-secondary-color: #e4e4e7;
 
   --mirabo-background-color: #fff;
   --mirabo-border-radius: 0.5rem;
@@ -63,10 +67,7 @@ nav {
   margin-top: 1rem;
   padding: 0.75rem 1rem;
 
-  position: sticky;
   top: 1rem;
-
-  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 nav h5,
@@ -180,7 +181,10 @@ p {
   margin-top: 0.25rem;
 }
 
-/* Form */
+/* 
+  FORM
+  All inputs should be 100%
+*/
 form {
   display: flex;
   flex-direction: column;
@@ -206,8 +210,13 @@ select:focus {
   border: solid 2px var(--mirabo-primary-color);
 }
 
+/* form > button {
+  width: 100%;
+} */
+
 /* 
-  BUTTON 
+
+BUTTON 
   - primary
     - usual
     - disabled
@@ -241,12 +250,15 @@ select:focus {
 
 /* all */
 *[role="button"],
+input[type="submit"],
+input[type="button"],
 button {
+  font-weight: 500;
   cursor: pointer;
   padding: 0.625rem 1rem;
   border-radius: 20rem;
   font-size: var(--mirabo-default-font-size);
-  transition: 0.2s ease-in-out 0s;
+  transition: transform 0.15s ease;
 }
 
 *[role="button"] {
@@ -259,6 +271,8 @@ button {
   But it takes more characters and looks a bit messy.
 */
 *[role="button"]:not(.secondary):not(.contrast):not(.text):not(.outline),
+input[type="submit"]:not(.secondary):not(.contrast):not(.text):not(.outline),
+input[type="button"]:not(.secondary):not(.contrast):not(.text):not(.outline),
 button:not(.secondary):not(.contrast):not(.text):not(.outline) {
   background-color: var(--mirabo-primary-color);
   /* to make outline button and usual button same size */
@@ -267,6 +281,8 @@ button:not(.secondary):not(.contrast):not(.text):not(.outline) {
 }
 
 *[role="button"]:not(.secondary):not(.contrast):not(.text).outline,
+input[type="submit"]:not(.secondary):not(.contrast):not(.text).outline,
+input[type="button"]:not(.secondary):not(.contrast):not(.text).outline,
 button:not(.secondary):not(.contrast):not(.text).outline {
   background-color: transparent;
   /* to make outline button and usual button same size */
@@ -276,6 +292,8 @@ button:not(.secondary):not(.contrast):not(.text).outline {
 
 /* secondary */
 *[role="button"].secondary:not(.outline),
+input[type="submit"].secondary:not(.outline),
+input[type="button"].secondary:not(.outline),
 button.secondary:not(.outline) {
   background-color: var(--mirabo-secondary-color);
   color: var(--mirabo-dark);
@@ -284,6 +302,8 @@ button.secondary:not(.outline) {
 }
 
 *[role="button"].secondary.outline,
+input[type="submit"].secondary.outline,
+input[type="button"].secondary.outline,
 button.secondary.outline {
   background-color: transparent;
   border: solid 2px var(--mirabo-secondary-color);
@@ -291,6 +311,8 @@ button.secondary.outline {
 
 /* contrast */
 *[role="button"].contrast:not(.outline),
+input[type="submit"].contrast:not(.outline),
+input[type="button"].contrast:not(.outline),
 button.contrast:not(.outline) {
   background-color: var(--mirabo-dark);
   color: var(--mirabo-text-color);
@@ -299,6 +321,8 @@ button.contrast:not(.outline) {
 }
 
 *[role="button"].contrast.outline,
+input[type="submit"].contrast.outline,
+input[type="button"].contrast.outline,
 button.contrast.outline {
   background-color: transparent;
   border: solid 2px var(--mirabo-dark);
@@ -306,14 +330,19 @@ button.contrast.outline {
 
 /* text */
 *[role="button"].text,
+input[type="submit"].text,
+input[type="button"].text,
 button.text {
   border: 0;
   background-color: transparent;
   box-sizing: border-box;
   display: inline-block;
+  position: relative;
 }
 
 *[role="button"].text:before,
+input[type="submit"].text:before,
+input[type="button"].text:before,
 button.text:before {
   content: "";
   position: absolute;
@@ -332,18 +361,24 @@ button.text:before {
 }
 
 *[role="button"].text:not(.outline)::before,
+input[type="submit"].text:not(.outline)::before,
+input[type="button"].text:not(.outline)::before,
 button.text:not(.outline)::before {
   background-color: var(--mirabo-secondary-color);
   border: solid 2px var(--mirabo-secondary-color);
 }
 
 *[role="button"].text.outline::before,
+input[type="submit"].text.outline::before,
+input[type="button"].text.outline::before,
 button.text.outline::before {
   border: solid 2px var(--mirabo-secondary-color);
 }
 
-*[role="button"].text:hover:before,
-button.text:enabled:hover:before {
+*[role="button"].text:hover::before,
+input[type="submit"].text:enabled:hover::before,
+input[type="button"].text:enabled:hover::before,
+button.text:enabled:hover::before {
   transform: scale(1);
 }
 
@@ -363,12 +398,12 @@ button:hover:enabled,
 input[type="submit"]:hover:enabled,
 input[type="reset"]:hover:enabled,
 *[role="button"]:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 button:disabled {
   cursor: default;
-  filter: opacity(0.8);
+  filter: opacity(0.7);
 }
 
 button:active:enabled,
@@ -417,7 +452,7 @@ article header {
   height: 100%;
 }
 
-/* Scrollbar */
+/* SCROLLBAR */
 
 ::-webkit-scrollbar {
   width: 0.5rem;

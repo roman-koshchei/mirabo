@@ -3,7 +3,6 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./mirabo.css" />
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" /> -->
     <title>Mirabo showcase</title>
   </head>
   <body style="padding-bottom: 5rem; margin: auto; max-width: 65rem">
@@ -21,7 +20,7 @@
     <h3 id="buttons">Buttons</h3>
     <h4>Primary</h4>
     <article>
-      <footer>
+      <footer style="display: flex">
         <button>Primary</button>
         <button disabled>Primary disabled</button>
         <button class="outline">Primary outline</button>
@@ -57,6 +56,15 @@
         <button class="text outline">Text outline</button>
         <button class="text outline" disabled>Text outline disabled</button>
       </footer>
+    </article>
+
+    <h3>Forms</h3>
+    <article>
+      <form>
+        <input type="text" />
+        <input type="reset" value="Reset" />
+        <input type="submit" value="Submit" />
+      </form>
     </article>
 
     <!-- Cards -->
