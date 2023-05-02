@@ -306,6 +306,7 @@ button.text {
   border: 0;
   background-color: transparent;
   box-sizing: border-box;
+  display: inline-block;
 }
 
 *[role="button"].text:before,
