@@ -3,12 +3,16 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./mirabo.css" />
+
+    <link rel="icon" type="image/x-icon" href="./assets/mirabo-icon.ico" />
+
     <title>Mirabo showcase</title>
   </head>
   <body style="padding-bottom: 5rem; margin: auto; max-width: 65rem">
     <nav>
       <div>
         <a role="button" class="text" href="#buttons">Buttons</a>
+        <a role="button" class="text" href="#forms">Forms</a>
       </div>
       <div>
         <a href="https://github.com/roman-koshchei/mirabo" role="button">GitHub</a>
@@ -21,7 +25,7 @@
     <h4>Primary</h4>
     <article>
       <footer style="display: flex">
-        <button>Primary</button>
+        <button onclick="alert('primary')">Primary</button>
         <button disabled>Primary disabled</button>
         <button class="outline">Primary outline</button>
         <button class="outline" disabled>Primary outline disabled</button>
@@ -58,10 +62,72 @@
       </footer>
     </article>
 
-    <h3>Forms</h3>
+    <h3 id="forms">Forms</h3>
     <article>
       <form>
-        <input type="text" />
+        <label for="text">Text input</label>
+        <input type="text" id="text" />
+
+        <label for="number">Number input</label>
+        <input type="number" id="number" />
+
+        <label for="textarea">Textarea</label>
+        <textarea id="textarea" rows="10"></textarea>
+
+        <label for="select">Select</label>
+        <select id="select">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+
+        <label for="eggs">Eggs</label>
+        <input type="checkbox" id="eggs" />
+        <label for="meat">Meat</label>
+        <input type="checkbox" id="meat" />
+        <label for="milk">Milk</label>
+        <input type="checkbox" id="milk" />
+
+        <label for="male">Male</label>
+        <input type="radio" name="sex" id="male" />
+        <label for="female">Female</label>
+        <input type="radio" name="sex" id="female" />
+
+        <label for="color">Color</label>
+        <input type="color" id="color" />
+
+        <label for="date">Date</label>
+        <input type="date" id="date" />
+
+        <label for="time">Time</label>
+        <input type="time" id="time" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Email" value="example@email.com" />
+
+        <label for="file">File</label>
+        <input type="file" id="file" />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password" value="password" />
+
+        <label for="url">Url</label>
+        <input
+          type="url"
+          id="url"
+          placeholder="Url"
+          value="https://github.com/roman-koshchei/mirabo"
+        />
+
+        <label for="telephone">Telephone</label>
+        <input type="tel" id="telephone" value="+380000000000" />
+
+        <label for="search">Search</label>
+        <input type="search" id="search" />
+
+        <label for="range">Range</label>
+        <input type="range" id="range" />
+
         <input type="reset" value="Reset" />
         <input type="submit" value="Submit" />
       </form>
@@ -223,63 +289,96 @@
 
     <div class="between"></div>
 
-    <!-- <div>
+    <h3>Typography</h3>
+    <article>
       <h1>Heading 1</h1>
       <h2>Heading 2</h2>
       <h3>Heading 3</h3>
       <h4>Heading 4</h4>
       <h5>Heading 5</h5>
       <h6>Heading 6</h6>
-    </div>
 
- 
-    <form>
-      <input type="text" placeholder="Text input" />
-      <input type="number" placeholder="Number" />
+      <a href="#">Primary</a>
+      <a href="#" class="secondary">Secondary</a>
+      <a href="#" class="contrast">Contrast</a>
 
-      <textarea>Textarea</textarea>
+      <blockquote>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero laudantium iste soluta natus
+        accusantium.
+      </blockquote>
+    </article>
 
-      <select>
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-      </select>
+    <h3>Tables</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Heading</th>
+          <th>Heading</th>
+          <th>Heading</th>
+          <th>Heading</th>
+          <th>Heading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>Cell</td>
+          <td>Cell</td>
+          <td>Cell</td>
+          <td>Cell</td>
+          <td>Cell</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>Cell</td>
+          <td>Cell</td>
+          <td>Cell</td>
+          <td>Cell</td>
+          <td>Cell</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>Cell</td>
+          <td>Cell</td>
+          <td>Cell</td>
+          <td>Cell</td>
+          <td>Cell</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>#</th>
+          <td>Total</td>
+          <td>Total</td>
+          <td>Total</td>
+          <td>Total</td>
+          <td>Total</td>
+        </tr>
+      </tfoot>
+    </table>
 
-      <input type="checkbox" />
+    <h3>Accordions</h3>
+    <details open>
+      <summary>Accordion 1</summary>
+      <p>Some description</p>
+    </details>
+    <details>
+      <summary role="button" class="secondary">Accordion 2</summary>
+      <p>Some description</p>
+    </details>
 
-      <input type="radio" name="radio" checked />
-      <input type="radio" name="radio" />
-      <input type="radio" name="radio" disabled />
-
-      <input type="range" />
-
-      <input type="submit" value="Submit" />
-    </form>
-
-
-    <div>
-      <div class="grid">
-        <button>Primary</button>
-        <button>Secondary</button>
-        <button>Contrast</button>
-      </div>
-
-      <div class="grid">
-        <button class="outline">Main outline</button>
-        <button class="outline">Secondary outline</button>
-        <button class="outline">Contrast outline</button>
-      </div>
-
-      <div class="grid">
-        <button disabled>Main disabled</button>
-        <button disabled>Secondary disabled</button>
-        <button disabled>Contrast disabled</button>
-      </div>
-    </div>
-
-
-    <div></div>
-
-    <dialog></dialog> -->
+    <h3>Modal</h3>
+    <button onclick="document.getElementById('modal').open = true">Open</button>
+    <dialog id="modal">
+      <header></header>
+      <article>
+        <h4>Modal</h4>
+        <button onclick="document.getElementById('modal').open = false">Close</button>
+      </article>
+      <footer></footer>
+    </dialog>
   </body>
 </html>
+
+<script></script>

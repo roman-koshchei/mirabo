@@ -1,23 +1,30 @@
-* {
-  outline: none;
-  /* font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-  line-height: 130%; */
-}
+/*
+  Mirabo.css
+  
+  Born to conquer Minimal CSS framework world
+  
+  GitHub: https://github.com/roman-koshchei/mirabo
+*/
 
 :root {
   --mirabo-text-color: white;
   --mirabo-dark: #27272a;
 
-  /* buttons */
-  --mirabo-primary-color: #a855f7;
-  --mirabo-secondary-color: #e4e4e7;
+  --mirabo-primary: #a855f7;
+  --mirabo-secondary: #e4e4e7;
 
   --mirabo-background-color: #fff;
   --mirabo-border-radius: 0.5rem;
   --mirabo-gap: 1rem;
   --mirabo-default-font-size: 1rem;
+
+  --mirabo-vertical-padding: 0.5rem;
+}
+
+* {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  /* font-size: 1rem; */
 }
 
 /**/
@@ -48,7 +55,6 @@ img {
 
 a {
   text-decoration: none;
-  color: var(--mirabo-dark);
 }
 
 /* 
@@ -68,15 +74,6 @@ nav {
   padding: 0.75rem 1rem;
 
   top: 1rem;
-}
-
-nav h5,
-nav h4,
-nav h1,
-nav h2,
-nav h3,
-nav h6 {
-  margin: 0;
 }
 
 /* Layout */
@@ -177,10 +174,6 @@ h6 {
   margin-bottom: 0.5rem;
 }
 
-p {
-  margin-top: 0.25rem;
-}
-
 /* 
   FORM
   All inputs should be 100%
@@ -196,7 +189,7 @@ textarea,
 select {
   padding: 1rem 1.25rem;
   border-radius: 0.5rem;
-  border: solid 2px hsl(207, 56%, 87%);
+  border: solid 2px var(--mirabo-secondary);
 }
 
 textarea {
@@ -207,12 +200,16 @@ textarea {
 input:focus,
 textarea:focus,
 select:focus {
-  border: solid 2px var(--mirabo-primary-color);
+  border: solid 2px var(--mirabo-primary);
 }
 
-/* form > button {
+form > button,
+form > [role="button"],
+form > input[type="submit"],
+form > input[type="button"],
+form > input[type="reset"] {
   width: 100%;
-} */
+}
 
 /* 
 
@@ -249,20 +246,98 @@ BUTTON
 */
 
 /* all */
-*[role="button"],
+[role="button"],
 input[type="submit"],
 input[type="button"],
+input[type="reset"],
 button {
-  font-weight: 500;
   cursor: pointer;
-  padding: 0.625rem 1rem;
+  box-sizing: border-box;
+  display: inline-block;
+  user-select: none;
+
+  padding: 0.6rem 1rem;
   border-radius: 20rem;
+
   font-size: var(--mirabo-default-font-size);
-  transition: transform 0.15s ease;
+  color: var(--mirabo-text-color);
+  background-color: var(--mirabo-primary);
+  border: solid 2px var(--mirabo-primary);
+
+  transition: transform 0.15s ease-in-out;
 }
 
-*[role="button"] {
-  display: inline-block;
+*[role="button"]:hover,
+input[type="submit"]:enabled:hover,
+input[type="button"]:enabled:hover,
+input[type="reset"]:enabled:hover,
+button:enabled:hover {
+  /* text-decoration: underline; */
+  filter: brightness(0.95);
+  transform: scaleY(1.04) scaleX(1.02);
+}
+
+*[role="button"]:active,
+input[type="submit"]:enabled:active,
+input[type="button"]:enabled:active,
+input[type="reset"]:enabled:active,
+button:enabled:active {
+  transform: scaleY(0.96) scaleX(0.98);
+}
+
+button:disabled {
+  cursor: default;
+  filter: opacity(0.7);
+}
+
+/* secondary */
+*[role="button"].secondary,
+input[type="submit"].secondary,
+input[type="button"].secondary,
+button.secondary {
+  background-color: var(--mirabo-secondary);
+  color: var(--mirabo-dark);
+  border-color: var(--mirabo-secondary);
+}
+
+/* contrast */
+*[role="button"].contrast,
+input[type="submit"].contrast,
+input[type="button"].contrast,
+button.contrast {
+  background-color: var(--mirabo-dark);
+  color: var(--mirabo-text-color);
+  border-color: var(--mirabo-dark);
+}
+
+/* Outline */
+
+*[role="button"].outline,
+input[type="submit"].outline,
+input[type="button"].outline,
+input[type="reset"].outline,
+button.outline {
+  background-color: transparent;
+  color: var(--mirabo-primary);
+  border: solid 2px var(--mirabo-primary);
+}
+
+/* secondary outline */
+*[role="button"].secondary.outline,
+input[type="submit"].secondary.outline,
+input[type="button"].secondary.outline,
+button.secondary.outline {
+  color: var(--mirabo-dark);
+  border-color: var(--mirabo-secondary);
+}
+
+/* secondary outline */
+*[role="button"].contrast.outline,
+input[type="submit"].contrast.outline,
+input[type="button"].contrast.outline,
+button.contrast.outline {
+  color: var(--mirabo-dark);
+  border-color: var(--mirabo-dark);
 }
 
 /* 
@@ -270,66 +345,9 @@ button {
   I desided to use :not to not overriding props. 
   But it takes more characters and looks a bit messy.
 */
-*[role="button"]:not(.secondary):not(.contrast):not(.text):not(.outline),
-input[type="submit"]:not(.secondary):not(.contrast):not(.text):not(.outline),
-input[type="button"]:not(.secondary):not(.contrast):not(.text):not(.outline),
-button:not(.secondary):not(.contrast):not(.text):not(.outline) {
-  background-color: var(--mirabo-primary-color);
-  /* to make outline button and usual button same size */
-  border: solid 2px var(--mirabo-primary-color);
-  color: var(--mirabo-text-color);
-}
-
-*[role="button"]:not(.secondary):not(.contrast):not(.text).outline,
-input[type="submit"]:not(.secondary):not(.contrast):not(.text).outline,
-input[type="button"]:not(.secondary):not(.contrast):not(.text).outline,
-button:not(.secondary):not(.contrast):not(.text).outline {
-  background-color: transparent;
-  /* to make outline button and usual button same size */
-  border: solid 2px var(--mirabo-primary-color);
-  color: var(--mirabo-primary-color);
-}
-
-/* secondary */
-*[role="button"].secondary:not(.outline),
-input[type="submit"].secondary:not(.outline),
-input[type="button"].secondary:not(.outline),
-button.secondary:not(.outline) {
-  background-color: var(--mirabo-secondary-color);
-  color: var(--mirabo-dark);
-  /* to make outline button and usual button same size */
-  border: solid 2px var(--mirabo-secondary-color);
-}
-
-*[role="button"].secondary.outline,
-input[type="submit"].secondary.outline,
-input[type="button"].secondary.outline,
-button.secondary.outline {
-  background-color: transparent;
-  border: solid 2px var(--mirabo-secondary-color);
-}
-
-/* contrast */
-*[role="button"].contrast:not(.outline),
-input[type="submit"].contrast:not(.outline),
-input[type="button"].contrast:not(.outline),
-button.contrast:not(.outline) {
-  background-color: var(--mirabo-dark);
-  color: var(--mirabo-text-color);
-  /* to make outline button and usual button same size */
-  border: solid 2px var(--mirabo-dark);
-}
-
-*[role="button"].contrast.outline,
-input[type="submit"].contrast.outline,
-input[type="button"].contrast.outline,
-button.contrast.outline {
-  background-color: transparent;
-  border: solid 2px var(--mirabo-dark);
-}
 
 /* text */
-*[role="button"].text,
+/* *[role="button"].text,
 input[type="submit"].text,
 input[type="button"].text,
 button.text {
@@ -338,6 +356,7 @@ button.text {
   box-sizing: border-box;
   display: inline-block;
   position: relative;
+  color: #27272a;
 }
 
 *[role="button"].text:before,
@@ -380,7 +399,7 @@ input[type="submit"].text:enabled:hover::before,
 input[type="button"].text:enabled:hover::before,
 button.text:enabled:hover::before {
   transform: scale(1);
-}
+} */
 
 /* *[role="button"] {
   text-align: center;
@@ -393,25 +412,6 @@ button.text:enabled:hover::before {
   -ms-user-select: none;
   user-select: none;
 } */
-
-button:hover:enabled,
-input[type="submit"]:hover:enabled,
-input[type="reset"]:hover:enabled,
-*[role="button"]:hover {
-  transform: scale(1.05);
-}
-
-button:disabled {
-  cursor: default;
-  filter: opacity(0.7);
-}
-
-button:active:enabled,
-input[type="submit"]:active:enabled,
-input[type="reset"]:active:enabled,
-*[role="button"]:active {
-  transform: scale(1);
-}
 
 /* CARD */
 
@@ -450,6 +450,41 @@ article header {
 
 .grid article {
   height: 100%;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: start;
+  font-weight: 400;
+}
+
+tr:not(:last-child) {
+  border-bottom: solid 1px var(--mirabo-secondary);
+}
+
+thead {
+  border-bottom: solid 2px var(--mirabo-secondary);
+  font-size: 1.125rem;
+}
+
+tfoot {
+  border-top: solid 2px var(--mirabo-secondary);
+  font-size: 1.125rem;
+}
+
+/**/
+
+/* MODAL */
+dialog {
+  border: 0;
 }
 
 /* SCROLLBAR */
