@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./mirabo.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
 
     <link rel="icon" type="image/x-icon" href="./assets/mirabo-icon.ico" />
 
@@ -20,115 +20,118 @@
     </nav>
 
     <h1>Mirabo showcase</h1>
-    <p>Show all elements of the framework</p>
 
     <h3 id="buttons">Buttons</h3>
     <h4>Primary</h4>
-    <section>
-      <button onclick="alert('primary')">Primary</button>
-      <button disabled>Primary disabled</button>
-      <button class="outline">Primary outline</button>
-      <button class="outline" disabled>Primary outline disabled</button>
-    </section>
+    <article>
+      <footer style="display: flex">
+        <button onclick="alert('primary')">Primary</button>
+        <button disabled>Primary disabled</button>
+        <button class="outline">Primary outline</button>
+        <button class="outline" disabled>Primary outline disabled</button>
+      </footer>
+    </article>
 
     <h4>Secondary</h4>
-    <section>
-      <button class="secondary">Secondary</button>
-      <button class="secondary" disabled>Secondary disabled</button>
-      <button class="secondary outline">Secondary outline</button>
-      <button class="secondary outline" disabled>Secondary outline disabled</button>
-    </section>
+    <article>
+      <footer>
+        <button class="secondary">Secondary</button>
+        <button class="secondary" disabled>Secondary disabled</button>
+        <button class="secondary outline">Secondary outline</button>
+        <button class="secondary outline" disabled>Secondary outline disabled</button>
+      </footer>
+    </article>
 
     <h4>Contrast</h4>
-    <section>
-      <button class="contrast">Contrast</button>
-      <button class="contrast" disabled>Contrast disabled</button>
-      <button class="contrast outline">Contrast outline</button>
-      <button class="contrast outline" disabled>Contrast outline disabled</button>
-    </section>
+    <article>
+      <footer>
+        <button class="contrast">Contrast</button>
+        <button class="contrast" disabled>Contrast disabled</button>
+        <button class="contrast outline">Contrast outline</button>
+        <button class="contrast outline" disabled>Contrast outline disabled</button>
+      </footer>
+    </article>
+
+    <h4>Text</h4>
+    <article>
+      <footer>
+        <button class="text">Text</button>
+        <button class="text" disabled>Text disabled</button>
+        <button class="text outline">Text outline</button>
+        <button class="text outline" disabled>Text outline disabled</button>
+      </footer>
+    </article>
 
     <h3 id="forms">Forms</h3>
-    <form>
-      <label for="text">Text input</label>
-      <input type="text" id="text" />
-
-      <!-- For future 
-      <label for="text">
-        Text input
+    <article>
+      <form>
+        <label for="text">Text input</label>
         <input type="text" id="text" />
-      </label>
-      -->
 
-      <label for="number">Number input</label>
-      <input type="number" id="number" />
+        <label for="number">Number input</label>
+        <input type="number" id="number" />
 
-      <label for="textarea">Textarea</label>
-      <textarea id="textarea" rows="10"></textarea>
+        <label for="textarea">Textarea</label>
+        <textarea id="textarea" rows="10"></textarea>
 
-      <label for="select">Select</label>
-      <select id="select">
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-      </select>
+        <label for="select">Select</label>
+        <select id="select">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
 
-      <label for="multiselect">Multiselect</label>
-      <select id="multiselect" multiple size="3">
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-      </select>
+        <label for="eggs">Eggs</label>
+        <input type="checkbox" id="eggs" />
+        <label for="meat">Meat</label>
+        <input type="checkbox" id="meat" />
+        <label for="milk">Milk</label>
+        <input type="checkbox" id="milk" />
 
-      <label for="eggs">Eggs</label>
-      <input type="checkbox" id="eggs" />
-      <label for="meat">Meat</label>
-      <input type="checkbox" id="meat" />
-      <label for="milk">Milk</label>
-      <input type="checkbox" id="milk" />
+        <label for="male">Male</label>
+        <input type="radio" name="sex" id="male" />
+        <label for="female">Female</label>
+        <input type="radio" name="sex" id="female" />
 
-      <label for="male">Male</label>
-      <input type="radio" name="sex" id="male" />
-      <label for="female">Female</label>
-      <input type="radio" name="sex" id="female" />
+        <label for="color">Color</label>
+        <input type="color" id="color" />
 
-      <label for="color">Color</label>
-      <input type="color" id="color" />
+        <label for="date">Date</label>
+        <input type="date" id="date" />
 
-      <label for="date">Date</label>
-      <input type="date" id="date" />
+        <label for="time">Time</label>
+        <input type="time" id="time" />
 
-      <label for="time">Time</label>
-      <input type="time" id="time" />
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Email" value="example@email.com" />
 
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Email" value="example@email.com" />
+        <label for="file">File</label>
+        <input type="file" id="file" />
 
-      <label for="file">File</label>
-      <input type="file" id="file" />
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password" value="password" />
 
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Password" value="password" />
+        <label for="url">Url</label>
+        <input
+          type="url"
+          id="url"
+          placeholder="Url"
+          value="https://github.com/roman-koshchei/mirabo"
+        />
 
-      <label for="url">Url</label>
-      <input
-        type="url"
-        id="url"
-        placeholder="Url"
-        value="https://github.com/roman-koshchei/mirabo"
-      />
+        <label for="telephone">Telephone</label>
+        <input type="tel" id="telephone" value="+380000000000" />
 
-      <label for="telephone">Telephone</label>
-      <input type="tel" id="telephone" value="+380000000000" />
+        <label for="search">Search</label>
+        <input type="search" id="search" />
 
-      <label for="search">Search</label>
-      <input type="search" id="search" />
+        <label for="range">Range</label>
+        <input type="range" id="range" />
 
-      <label for="range">Range</label>
-      <input type="range" id="range" />
-
-      <input type="reset" value="Reset" />
-      <input type="submit" value="Submit" />
-    </form>
+        <input type="reset" value="Reset" />
+        <input type="submit" value="Submit" />
+      </form>
+    </article>
 
     <!-- Cards -->
     <h3>Cards</h3>
@@ -187,6 +190,9 @@
       </article>
 
       <article>
+        <header>
+          <b>some info in header</b>
+        </header>
         <img src="./assets/aika.png" />
         <h4>Aika</h4>
         <p>
@@ -200,59 +206,83 @@
       </article>
     </div>
 
-    <h3>Cards many: 4 columns at desktop + each element wrapped into link. E-com like.</h3>
+    <h3>Cards many: 4 columns at desktop + each element wrapped into link</h3>
     <div class="grid many" style="margin-top: 2rem">
       <a href="./assets/hikari.png">
         <article>
           <img src="./assets/hikari.png" />
-          <h5>1500 $</h5>
-          <p>Tommy Hilfiger gold plated wrist men watch with a chain lik bracelet.</p>
+          <h4>Hikari</h4>
+          <p>Hikari's radiance shone like a beacon in the darkness.</p>
         </article>
       </a>
 
       <a href="./assets/sakura.png">
         <article>
           <img src="./assets/sakura.png" />
-          <h5>1500 $</h5>
-          <p>Tommy Hilfiger gold plated wrist men watch with a chain lik bracelet.</p>
+          <h4>Sakura</h4>
+          <p>Her soft, gentle voice carried the sweet scent of cherry blossoms.</p>
         </article>
       </a>
 
       <a href="./assets/yui.png">
         <article>
           <img src="./assets/yui.png" />
-          <h5>1500 $</h5>
-          <p>Tommy Hilfiger gold plated wrist men watch with a chain lik bracelet.</p>
+          <h4>Yui</h4>
+          <p>
+            Yui's cheerful personality was contagious, and her laughter filled the air with joy.
+          </p>
         </article>
       </a>
 
       <a href="./assets/akira.png">
         <article>
           <img src="./assets/akira.png" />
-          <h5>1500 $</h5>
-          <p>Tommy Hilfiger gold plated wrist men watch with a chain lik bracelet.</p>
+          <h4>Akira</h4>
+          <p>
+            With her fiery spirit and determination, Akira was a force to be reckoned with. Her eyes
+            burned with a fierce intensity.
+          </p>
         </article>
       </a>
 
       <a href="./assets/aika.png">
         <article>
           <img src="./assets/aika.png" />
-          <h5>1500 $</h5>
-          <p>Tommy Hilfiger gold plated wrist men watch with a chain lik bracelet.</p>
+          <h4>Aika</h4>
+          <p>
+            With a mischievous glint in her eye and a playful smirk on her lips, Aika was always up
+            for an adventure.
+          </p>
         </article>
       </a>
 
       <a href="./assets/haruka.png">
         <article>
           <img src="./assets/haruka.png" />
-          <div class="between" style="margin: 1rem 0">
-            <div style="display: flex; flex-direction: column">
-              <h5 style="margin: 0">1500 $</h5>
-              <s>1900 $</s>
-            </div>
-            <button class="outline">Buy</button>
-          </div>
-          <p>Tommy Hilfiger gold plated wrist men watch with a chain lik bracelet.</p>
+          <h4>Haruka</h4>
+          <p>
+            Though she may have seemed distant at first, Haruka's heart was filled with warmth and
+            kindness.
+          </p>
+        </article>
+      </a>
+
+      <!-- <article>
+        <img src="./assets/ayumi.png" />
+        <h4>Ayumi</h4>
+        <p>
+          With a smile that could light up the darkest of rooms, Ayumi walked confidently down the
+          path of life. Her spirit was unbreakable, and her heart was pure. She was a beacon of hope
+          for all who knew her.
+        </p>
+        <button>Details</button>
+      </article> -->
+
+      <a href="./assets/mio.png">
+        <article>
+          <img src="./assets/mio.png" />
+          <h4>Mio</h4>
+          <p>With delicate features and a quiet grace, Mio was a vision of beauty.</p>
         </article>
       </a>
     </div>
@@ -278,50 +308,6 @@
 
     <h3>Tables</h3>
     <table>
-      <tr>
-        <th>1</th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-      <tr>
-        <th>1</th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-      <tr>
-        <th>1</th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-      <tr>
-        <th>1</th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-      <tr>
-        <th>1</th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-    </table>
-
-    <h4>Table with thead and tfoot</h4>
-    <table>
       <thead>
         <tr>
           <th>#</th>
@@ -333,22 +319,6 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>1</th>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>Cell</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>Cell</td>
-          <td>Cell</td>
-        </tr>
         <tr>
           <th>1</th>
           <td>Cell</td>
@@ -391,10 +361,10 @@
       <summary>Accordion 1</summary>
       <p>Some description</p>
     </details>
-    <!-- <details>
+    <details>
       <summary role="button" class="secondary">Accordion 2</summary>
       <p>Some description</p>
-    </details> -->
+    </details>
 
     <h3>Modal</h3>
     <button onclick="document.getElementById('modal').open = true">Open</button>
