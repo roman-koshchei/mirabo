@@ -79,17 +79,39 @@
         <option value="3">Option 3</option>
       </select>
 
-      <label for="eggs">Eggs</label>
-      <input type="checkbox" id="eggs" />
-      <label for="meat">Meat</label>
-      <input type="checkbox" id="meat" />
-      <label for="milk">Milk</label>
-      <input type="checkbox" id="milk" />
+      <!-- 
+        Yep, wrapping. Yep, not linear. 
+        But I decided that's the best way to make all work.
+       -->
+      <label for="eggs">
+        <input type="checkbox" id="eggs" checked />
+        Eggs
+      </label>
+      <label for="meat">
+        <input type="checkbox" id="meat" />
+        Meat
+      </label>
+      <label for="milk">
+        <input type="checkbox" id="milk" disabled />
+        Milk
+      </label>
+      <label for="water">
+        <input type="checkbox" id="water" checked disabled />
+        Water
+      </label>
 
-      <label for="male">Male</label>
-      <input type="radio" name="sex" id="male" />
-      <label for="female">Female</label>
-      <input type="radio" name="sex" id="female" />
+      <label for="male" style="margin-top: 2rem">
+        <input type="radio" name="sex" id="male" />
+        Male
+      </label>
+      <label for="female">
+        <input type="radio" name="sex" id="female" />
+        Female
+      </label>
+      <label for="wft">
+        <input type="radio" name="sex" id="wft" disabled checked />
+        WTF
+      </label>
 
       <label for="color">Color</label>
       <input type="color" id="color" />

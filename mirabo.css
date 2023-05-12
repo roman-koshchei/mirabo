@@ -17,9 +17,10 @@
   --mirabo-border-radius: 0.5rem;
   --mirabo-gap: 1rem;
   --mirabo-default-font-size: 1rem;
-
   --mirabo-vertical-padding: 0.5rem;
+
   --mirabo-arrow: url("data:image/svg+xml,%3Csvg width='13' height='8' viewBox='0 0 13 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 1.5L6.5 6.5L11.5 1.5' stroke='%2327272A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --mirabo-check: url("data:image/svg+xml,%3Csvg width='9' height='7' viewBox='0 0 9 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1L3.625 6L1 3.72727' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 ::selection {
@@ -30,8 +31,12 @@
   outline: none;
   -webkit-tap-highlight-color: transparent;
   font-family: sans-serif;
+}
 
-  /* font-size: 1rem; */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 p {
@@ -190,11 +195,6 @@ h6 {
   FORM
   All inputs should be 100%
 */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
 
 input,
 textarea,
@@ -204,6 +204,7 @@ select {
   border-radius: 0.375rem;
   background-color: #00000008;
   border: solid 2px transparent;
+  margin-bottom: 1rem;
 }
 
 select:not([multiple]) {
@@ -223,18 +224,20 @@ textarea {
   min-height: 1.125rem;
 }
 
-input:not([type="file"]):not([type="range"]):focus,
+[type="text"]:focus,
+[type="number"]:focus,
+[type="email"]:focus,
+[type="password"]:focus,
+[type="url"]:focus,
+[type="tel"]:focus,
+[type="search"]:focus,
 textarea:focus {
   border: solid 2px var(--mirabo-primary);
 }
 
-label + input,
-label + textarea,
-label + select {
-  margin-top: -0.5rem;
-}
+/* RANGE */
 
-input[type="range"] {
+[type="range"] {
   height: 2px;
   padding: 0;
   border-radius: 20rem;
@@ -242,7 +245,7 @@ input[type="range"] {
   appearance: none;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 1.5rem;
   height: 1.5rem;
@@ -252,7 +255,7 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
 }
 
-input[type="range"]::-moz-range-thumb {
+[type="range"]::-moz-range-thumb {
   width: 1.25rem;
   height: 1.25rem;
   background-color: var(--mirabo-background-color);
@@ -263,44 +266,76 @@ input[type="range"]::-moz-range-thumb {
 
 form > button,
 form > [role="button"],
-form > input[type="submit"],
-form > input[type="button"],
-form > input[type="reset"] {
+form > input,
+form > textarea,
+form > select {
   width: 100%;
 }
 
+/* Hide the default checkbox */
+[type="checkbox"],
+[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+
+  border: solid 2px var(--mirabo-secondary);
+  background: none;
+}
+
+[type="checkbox"]:checked {
+  background-image: var(--mirabo-check);
+  background-position: center;
+  background-size: 0.75em auto;
+  background-repeat: no-repeat;
+
+  background-color: var(--mirabo-primary);
+  border: solid 2px var(--mirabo-primary);
+}
+
+[type="checkbox"]:disabled {
+  border-color: var(--mirabo-secondary);
+  background-color: var(--mirabo-secondary);
+  cursor: default;
+}
+
+[type="radio"] {
+  border-radius: 20rem;
+}
+
+[type="radio"]:enabled:checked {
+  border-color: var(--mirabo-primary);
+}
+
+[type="radio"]:disabled {
+  background-color: var(--mirabo-secondary);
+  border-color: var(--mirabo-secondary);
+}
+
+[type="radio"]:checked {
+  border-width: 0.4rem;
+  background-color: transparent;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 /* 
-
 BUTTON 
-  - primary
-    - usual
-    - disabled
-    - outline
-    - outline disabled
-  - secondary
-    - usual
-    - disabled
-    - outline
-    - outline disabled
-  - contrast
-    - usual
-    - disabled
-    - outline
-    - outline disabled
-
   Tags:
   - button
   - *[role="button"] - any element which role is button
   - input[type="submit"] - submit buttons
   - input[type="reset"] - reset buttons, should be secondary or text
   - input[type="button"] - button inputs
-
-
-  *[role="button"],
-  input[type="submit"],
-  input[type="reset"],
-  input[type="button"],
-  button
 */
 
 /* all */
@@ -369,10 +404,10 @@ button.contrast {
 
 /* Outline */
 
-*[role="button"].outline,
-input[type="submit"].outline,
-input[type="button"].outline,
-input[type="reset"].outline,
+[role="button"].outline,
+[type="submit"].outline,
+[type="button"].outline,
+[type="reset"].outline,
 button.outline {
   background-color: transparent;
   color: var(--mirabo-primary);
@@ -380,9 +415,9 @@ button.outline {
 }
 
 /* secondary outline */
-*[role="button"].secondary.outline,
-input[type="submit"].secondary.outline,
-input[type="button"].secondary.outline,
+[role="button"].secondary.outline,
+[type="submit"].secondary.outline,
+[type="button"].secondary.outline,
 button.secondary.outline {
   color: var(--mirabo-dark);
   border-color: var(--mirabo-secondary);
