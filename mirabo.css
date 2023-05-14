@@ -264,6 +264,10 @@ textarea:focus {
   cursor: pointer;
 }
 
+[type="file"] {
+  cursor: pointer;
+}
+
 form > button,
 form > [role="button"],
 form > input,
@@ -321,6 +325,29 @@ form > select {
 [type="radio"]:checked {
   border-width: 0.4rem;
   background-color: transparent;
+}
+
+[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.75rem;
+  height: 3.5rem;
+}
+
+[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+[type="color"]::-webkit-color-swatch {
+  border-radius: calc(var(--mirabo-border-radius) / 2);
+  border: none;
+}
+
+[type="color"]::-moz-color-swatch {
+  border-radius: calc(var(--mirabo-border-radius) / 2);
+  padding: 0;
+  border: none;
 }
 
 label {
