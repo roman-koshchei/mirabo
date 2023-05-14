@@ -350,6 +350,16 @@ form > select {
   border: none;
 }
 
+[type="file"] {
+  background: none;
+  padding: 0.5rem 0;
+  border-radius: 0;
+}
+
+[type="file"]::file-selector-button {
+  margin-right: 1rem;
+}
+
 label {
   display: block;
   margin-bottom: 0.5rem;
@@ -370,6 +380,7 @@ BUTTON
 input[type="submit"],
 input[type="button"],
 input[type="reset"],
+[type="file"]::file-selector-button,
 button {
   cursor: pointer;
   box-sizing: border-box;
