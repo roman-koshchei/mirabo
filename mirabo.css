@@ -276,7 +276,6 @@ form > select {
   width: 100%;
 }
 
-/* Hide the default checkbox */
 [type="checkbox"],
 [type="radio"] {
   -webkit-appearance: none;
@@ -462,9 +461,9 @@ button.secondary.outline {
 }
 
 /* secondary outline */
-*[role="button"].contrast.outline,
-input[type="submit"].contrast.outline,
-input[type="button"].contrast.outline,
+[role="button"].contrast.outline,
+[type="submit"].contrast.outline,
+[type="button"].contrast.outline,
 button.contrast.outline {
   color: var(--mirabo-dark);
   border-color: var(--mirabo-dark);
