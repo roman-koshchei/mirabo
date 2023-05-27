@@ -34,8 +34,8 @@
 }
 
 *,
-*:before,
-*:after {
+:before,
+:after {
   box-sizing: border-box;
 }
 
@@ -268,11 +268,11 @@ textarea:focus {
   cursor: pointer;
 }
 
-form > button,
-form > [role="button"],
-form > input,
-form > textarea,
-form > select {
+form button,
+form [role="button"],
+form input,
+form textarea,
+form select {
   width: 100%;
 }
 
